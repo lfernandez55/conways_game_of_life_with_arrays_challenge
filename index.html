@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conway's Game of Life With Arrays</title>
+    <style>
+        body {
+            margin: auto;
+            text-align: center;
+        }
+
+        #grid {
+            margin: 40px;
+            letter-spacing: 0.5em;
+        }
+
+        button {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick=evolve()>Evolve</button>
+    <div id="grid"></div>
+</body>
+<script>
+    // see https://www.w3schools.com/charsets/ref_utf_geometric.asp
+    let dead = '&#9723;'  // a white cell
+    let alive = '&#9724;' // a black cell
+    let grid = [
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+        [dead, dead, dead, dead, dead, dead, dead, dead, dead, dead],
+    ]
+
+    // Set coordinates of blinker 
+    grid[8][1] = alive
+    grid[8][2] = alive
+    grid[8][3] = alive
+
+
+    // Set coordinates of crawler
+    // TODO: Set the coordinates of the crawler as depicted in the video
+
+    // Having created the grid, and set the coordinates of the blinker
+    // and crawler, paint the grid by calling the printGrid Function
+    printGrid();
+
+    // This function populates the grid in the HTML element with an
+    // id of "grid"
+    function printGrid() {
+        // TODO: Write the code that will execute this function
+    }
+
+    // This function takes as input the coordinates of an existing cell
+    // and returns the number of adjacent cells that are alive 
+    function countSurroundingLiveCells(y, x) {
+        // TODO:  Write the code that will execute this function
+
+    }
+
+
+    // This function evolves all the cells in the grid one generation
+    function evolve() {
+        // Make a copy of the grid that doesn't reference the same memory
+        // (If you simply do gridCopy = grid, changes to the gridCopy will
+        // immediate update the grid)
+        var gridCopy = []
+        for (var i = 0; i < grid.length; i++) {
+            gridCopy[i] = grid[i].slice();
+        }
+
+        // Scan through the original grid cell by cell and determine whether each cell 
+        // should live or die.  After determining a cell's fate, update its fate in gridCopy.
+        // (If you immediately update the state in grid rather than in gridCopy you will 
+        // corrupt the scan).  Use the following pseudocode:
+        //
+        // while there are more cells to scan:
+        //     determine coordinates of current-scanned-cell
+        //     surroundingLiveCells = countSurroundingLiveCells(coordinates of current-scanned-cell)
+        //     if current-scanned-cell alive:
+        // 	       if surroundingLiveCells < 2 OR surroundingLiveCells > 3:
+        // 		        mark coordinates of current-scanned-cell dead in gridCopy
+        //         else:
+        //              mark coordinates of current-scanned-cell alive in gridCopy 
+        //     else: //(cell is dead)
+        // 	        if surroundingLiveCells = 3:
+        // 		        mark coordinates of current-scanned-cell alive in gridCopy
+        //          else:
+        //              mark coordinates of current-scanned-cell dead in gridCopy
+        //
+        // TODO: Write the code that will execute the above pseudocode:
+
+
+
+        // Copy the gridCopy back on to the grid and print the grid.
+        for (var i = 0; i < gridCopy.length; i++) {
+            grid[i] = gridCopy[i].slice();
+        }
+        printGrid();
+    }
+
+
+</script>
+
+</html>
